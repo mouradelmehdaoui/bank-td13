@@ -1,4 +1,5 @@
 import { Link, useNavigate } from 'react-router-dom'
+import logo from '../assets/argentBankLogo.png'
 
 export default function Error() {
 	const navigate = useNavigate()
