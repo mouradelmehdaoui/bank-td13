@@ -20,17 +20,15 @@ export const loginMiddleware = (
 			return
 		}
 		try {
-
-			console.log(password);
 			const loginResponse = await axios.post(loginURL, {
 				email,
 				password,
 			})
 
-			console.log('je suis ici',loginResponse.data.status);
-
+			console.log('login Response',loginResponse);
 			// Si la réponse de l'API est OK et donc contient un token, je mets à jour le state
 			if (loginResponse.data.status === 200) {
+
 				dispatch(setAuthenticating({ token: loginResponse.data.body.token, isLoggedIn: true }))
 				dispatch(loginError(null))
 			}
@@ -40,6 +38,8 @@ export const loginMiddleware = (
 				{},
 				{ headers: { Authorization: `Bearer ${loginResponse.data.body.token}` } }
 			)
+
+			console.log('profile reponse',profileResponse);
 			dispatch(
 				setUserInfos({
 					firstName: profileResponse.data.body.firstName,
