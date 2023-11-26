@@ -48,13 +48,16 @@ export const auth = createSlice({
 
 		// Je crée un reducer pour basculer le composant HeaderLoggedInBase sur le composant HeaderLoggedInEdited si l'utilisateur souhaite modifier son nom et prénom
 		editUser: (state, action) => {
+			console.log('je suis dans editUSer Store');
 			state.editionMode = action.payload.editionMode
+			console.log(state.editionMode);
 		},
 
 		// Je crée un reducer pour gérer les erreurs de connexion
 		loginError: (state, action) => {
 			state.error = action.payload
 		},
+
 	},
 })
 

@@ -1,17 +1,15 @@
 import { useDispatch } from 'react-redux';
 import { editUser } from '../treatments/services/authentication.service'
-import HeaderLoggedInBaseProps from '../model/HeaderLoggedInBaseProps'
+import HeaderActualUser from '../model/HeaderActualUser'
 
-export default function HeaderLoggedInBase({ actualUser }: HeaderLoggedInBaseProps) {
+export default function HeaderLoggedInBase({ actualUser }: HeaderActualUser) {
+  console.log('je suis dans headerBase');
     const dispatch = useDispatch();
   
     const handleEditButton = (event: any) => {
 
-      console.log('edit function header user', event);
       event.preventDefault();
       dispatch(editUser({ editionMode: true }));
-
-      console.log(actualUser);
     };
   
     return (

@@ -2,10 +2,12 @@ import { useDispatch } from 'react-redux'
 import { userInfosCheck } from '../treatments/services/signIn.service'
 import { editUserMiddleware } from '../middlewares/editUserMiddleware'
 import { editUser } from '../treatments/services/authentication.service'
-import HeaderLoggedInEditedProps from '../model/HeaderLoggedInEditedProps'
+import HeaderActualUser from '../model/HeaderActualUser'
 
-export default function HeaderLoggedInEdited({ actualUser }: HeaderLoggedInEditedProps) {
+export default function HeaderLoggedInEdited({ actualUser }: HeaderActualUser) {
 	const dispatch = useDispatch()
+
+	console.log('je suis dans headerEdit');
 
 	const handleSaveButton = (event: any) => {
 		event.preventDefault()

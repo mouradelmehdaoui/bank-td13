@@ -2,16 +2,10 @@ import { Link, useNavigate } from 'react-router-dom'
 import logo from '../assets/argentBankLogo.png'
 import { useDispatch, useSelector } from 'react-redux'
 import { resetState } from '../treatments/services/authentication.service'
+import HeaderActualUser from '../model/HeaderActualUser'
 
-// Je crée une interface pour définir les props du composant en respectant typescript
-interface HeaderProps {
-	actualUser: {
-		lastName: string
-		firstName: string
-	}
-}
 
-export default function Header({ actualUser }: HeaderProps) {
+export default function Header({ actualUser }: HeaderActualUser) {
 	const dispatch = useDispatch()
 	const navigate = useNavigate()
 	const isLoggedIn = useSelector((state: any) => state.auth.isLoggedIn)

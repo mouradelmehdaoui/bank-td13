@@ -1,4 +1,5 @@
-export default interface HeaderLoggedInEditedProps {
+
+export default interface HeaderActualUser {
 	actualUser: {
 		lastName: string
 		firstName: string

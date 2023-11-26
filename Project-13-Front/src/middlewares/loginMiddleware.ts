@@ -25,7 +25,6 @@ export const loginMiddleware = (
 				password,
 			})
 
-			console.log('login Response',loginResponse);
 			// Si la réponse de l'API est OK et donc contient un token, je mets à jour le state
 			if (loginResponse.data.status === 200) {
 
@@ -39,7 +38,6 @@ export const loginMiddleware = (
 				{ headers: { Authorization: `Bearer ${loginResponse.data.body.token}` } }
 			)
 
-			console.log('profile reponse',profileResponse);
 			dispatch(
 				setUserInfos({
 					firstName: profileResponse.data.body.firstName,
