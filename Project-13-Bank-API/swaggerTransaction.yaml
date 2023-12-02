@@ -1,5 +1,5 @@
 swagger: "2.0"
-info: Mourad El mehdaoui - TD13 ApiBank 
+info:
   title: Transactions API
   version: 1.0.0
 host: localhost:3001
@@ -90,44 +90,6 @@ paths:
         '500':
           description: Internal Server Error
 
-    post:
-      tags:
-        - Transactions 
-      summary: Creates transaction details
-      description: Creates a note for the transaction
-      parameters:
-        - in: header
-          type:  string
-          name: Authorization
-          description: "\"Bearer [JWT]"
-          required: true
-
-        - in: body
-          name: Body of the request
-          description: Adds notes to the transaction
-          required: true
-          schema:
-            $ref: '#/definitions/TransactionsPost'
-      produces:
-        - application/json
-      responses:
-        '200':
-          description: OK
-          schema:
-            $ref: '#/definitions/TransactionsOtherResponse'
-      
-        '400':
-          description: Bad request
-        '401':
-           description: Unauthenticated
-        '403':
-           description: Unauthorized
-        '404':
-           description: Not found
-
-        '500':
-          description: Internal Server Error
- 
     put:
       tags:
         - Transactions 
@@ -187,8 +149,6 @@ definitions:
         
    # retrieve transactions Api without Notes & Category
   TransactionIdResponse:
-    type: array
-    items:
       type: object
       properties:
         transactionId:
@@ -212,6 +172,7 @@ definitions:
         notes:
           type: string
           description: User notes of the transaction
+
             
   # Message succes delete transacation by transactionid && userAccountId 
   TransactionsMessageSuccess:
@@ -242,29 +203,10 @@ definitions:
           type: number
           description: Account's balance after the transaction      
           
-    # add note or category to transaction
-  TransactionsPost:
-      properties:
-        userAccountId:
-          type: string
-          description: ID of the account
-        transactionId:
-          type: string
-          description: ID of the transaction
-        notes:
-          type: string
-          description: Notes of the transaction
-
      
 # Transaction Modify
   TransactionsPut:
       properties:
-        userAccountId:
-          type: string
-          description: ID of the account
-        transactionId:
-          type: string
-          description: ID of the transaction
         notes:
           type: string
           description: Notes of the transaction
